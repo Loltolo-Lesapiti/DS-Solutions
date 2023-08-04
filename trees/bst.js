@@ -67,6 +67,23 @@ class Bst{
             this.inOrder(root.right)
         }
     }
+
+    //Preorder.
+    preOrder(root){
+        if(root){
+            this.preOrder(root.left);
+            console.log(root.value)
+            this.preOrder(root.right)
+        }
+    }
+
+    //Post Order.
+    postOrder(root){
+        this.postOrder(root.value);
+        console.log(root.value)
+        this.preOrder(root.right)
+
+    }
 }
 
 const bst= new Bst();

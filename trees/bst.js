@@ -99,6 +99,14 @@ class Bst{
             }
         }
     }
+    //Min value.
+    min(root){
+        if(root.left){
+            return this.min(root.left);
+        }else{
+            return root.value;
+        }
+    }
 }
 
 const bst= new Bst();
@@ -107,4 +115,5 @@ bst.insert(5);
 bst.insert(6);
 
 
-bst.levelOrder(bst.root);
+console.log(bst.min(bst.root));
+console.log(bst.max(bst.root))

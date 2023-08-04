@@ -2,7 +2,7 @@
 //Create a node class.
 class Node{
     constructor(value){
-        this.root=value;
+        this.value=value;
         this.left=null;
         this.right=null;
     }
@@ -21,7 +21,7 @@ class Bst{
         //create an instance of the node and pass the value.
         const newNode= new Node(value);
         //Check if its empty, call insertion method to help. 
-        if(this.isEmpty){
+        if(this.isEmpty()){
             this.root=newNode;
         }else{
             this.insertNode(this.root, newNode);
@@ -29,7 +29,7 @@ class Bst{
     }
     // The insertion method.
     insertNode(root, newNode){
-        if(root.value>newNode.value){
+        if(root.value>newNode){
             if(root.left===null){
                 root.left=newNode
             }else{
@@ -48,10 +48,10 @@ class Bst{
         if(this.isEmpty()){
             return false;
         }else{
-            if(root.value===searchNode.value){
+            if(root.value===searchNode){
                 return true;
             }else{
-                if (root<searchNode){
+                if (root.value<searchNode){
                     return this.find(root.left, searchNode)
                 }else{
                     return this.find(root.right, searchNode)
@@ -59,13 +59,20 @@ class Bst{
             }
         }
     }
+    //Traversing through a tree Breath First Search (BST)
+    inOrder(root){
+        if(root){
+            this.inOrder(root.left)
+            console.log(root.value)
+            this.inOrder(root.right)
+        }
+    }
 }
-const bst= new Bst();
-console.log(bst.isEmpty());
 
+const bst= new Bst();
 bst.insert(10);
 bst.insert(5);
 bst.insert(6);
 
 
-console.log(bst.find(bst.root,5));
+bst.inOrder(bst.root);

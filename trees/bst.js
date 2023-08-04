@@ -84,6 +84,21 @@ class Bst{
         this.preOrder(root.right)
 
     }
+    //Breath First Search Traversal.
+    levelOrder(root){
+        let queue=[];
+        queue.push(root);
+        while(queue.length){
+            let cur=queue.shift();
+            console.log(cur.value)
+            if(cur.left){
+                queue.push(cur.left)
+            }
+            if(cur.right){
+                queue.push(cur.right)
+            }
+        }
+    }
 }
 
 const bst= new Bst();
@@ -92,4 +107,4 @@ bst.insert(5);
 bst.insert(6);
 
 
-bst.inOrder(bst.root);
+bst.levelOrder(bst.root);

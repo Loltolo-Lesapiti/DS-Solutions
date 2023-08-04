@@ -107,6 +107,13 @@ class Bst{
             return root.value;
         }
     }
+    max(root){
+        if(!root.right){
+            return root.value;
+        }else{
+            return this.max(root.right);
+        }
+    }
 }
 
 const bst= new Bst();

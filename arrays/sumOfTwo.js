@@ -14,18 +14,15 @@
 // Output: [1,2]
 
 const sum=(nums, target)=>{
-    //Decalare an empty object. 
-    const numsObject={};
+    const myObj= new Map();
     for(let i=0; i<nums.length; i++){
         let result= target-nums[i];
-        //Check if the result is in the object. 
-        if(result in numsObject){
-            return [numsObject[result], i]
+        if(myObj.has(result)){
+            return [nums.indexOf(result),i]
         }
-    //Add items in the array to the hashmap;
-        numsObject[nums[i]]=i
+        myObj.set(nums[i], true)
     }
-    return [];
+    return null;
 }
 let nums = [2,7,11,15], target = 9
 

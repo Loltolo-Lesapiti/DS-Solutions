@@ -39,6 +39,27 @@
               this.tail.next=null;
             }
         }
+       // Insert a node at a particular position.
+       insertNodeAtPos(data, position){
+        let newNode= new Node(data);
+        if(position===0){
+            newNode.next=this.head;
+            this.head=newNode;
+            return;
+        }
+        let cur=this.head;
+        let i=0;
+        while(i<position && cur){
+            i++;
+            cur=cur.next;
+            if(cur){
+                newNode.next=cur.next;
+                cur.next=newNode;
+            }
+
+        }
+       }
+        
         //Print elements of an array
         printAll=()=>{
             let cur=this.head;
@@ -63,5 +84,6 @@
     list.addToBegin(10)
     list.addToBegin(9)
     list.addToBegin(11)
+    list.insertNodeAtPos(7,0)
 
     list.printAll();

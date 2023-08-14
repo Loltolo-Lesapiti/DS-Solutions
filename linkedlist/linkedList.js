@@ -49,7 +49,7 @@
         }
         let cur=this.head;
         let i=0;
-        while(i<position && cur){
+        while(i<position-1 && cur){
             i++;
             cur=cur.next;
             if(cur){
@@ -84,6 +84,6 @@
     list.addToBegin(10)
     list.addToBegin(9)
     list.addToBegin(11)
-    list.insertNodeAtPos(7,0)
+    list.insertNodeAtPos(7,2)
 
     list.printAll();

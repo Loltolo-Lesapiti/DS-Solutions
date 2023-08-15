@@ -59,6 +59,8 @@
 
         }
        }
+       // Deleting a node at the begining
+       const 
         
         //Print elements of an array
         printAll=()=>{

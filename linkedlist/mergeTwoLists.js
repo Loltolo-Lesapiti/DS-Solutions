@@ -39,6 +39,22 @@ class LinkedList{
             }
         }
     }
+    hasCycle=(head)=>{
+        if(!head || !head.next){
+            return false;
+        }else{
+            let slow=head;
+            let fast=head.next;
+            while(fast && fast.next){
+                if(slow===fast){
+                    return true;
+                }
+                slow=slow.next;
+                fast=fast.next.next;
+            }
+            return false;
+        }
+    }
     // Remove duplicates.
     removeDuplicates=(value)=>{
         let cur=this.head;
@@ -73,6 +89,7 @@ l1.addNode(2)
 l1.addNode(3)
 l1.removeDuplicates();
 l1.printAll();
+console.log(l1.hasCycle());
 
 
 

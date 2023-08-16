@@ -72,6 +72,46 @@ class LinkedList{
         }
         return this.head;
     }
+    size=(head)=>{
+        let cur=head;
+        let length=0;
+        while(cur){
+            length++;
+            cur=cur.next;
+        }
+        return length;
+    }
+    //Intersection of two Linked Lists.
+    intersection=(head1, head2)=>{
+        //Find the length of the two lists.
+        let list1length= this.size(head1);
+        let list2length=this.size(head2);
+
+        //Find the difference.
+        let diff= math.abs(list1length-list2length);
+
+        //Traverse the longer list by diff steps.
+        let pointer1= head1;
+        let pointer2= head2;
+        while(diff>0){
+            if(list1length>list2length){
+                pointer1=pointer1.next;
+                diff--;
+            }else{
+                pointer2=pointer2.next;
+                diff--;
+            }
+        }
+        // Traverse both lists from pointers 1 and 2.
+        while(pointer1 && pointer2){
+            if(pointer1.value===pointer2.value){
+                return pointer1.value;
+            }
+            pointer1=pointer1.next;
+            pointer2=pointer2.next;
+        }
+        return null;
+    }
     //Print all the nodes.
     printAll=()=>{
         let cur= this.head;
@@ -83,10 +123,11 @@ class LinkedList{
 }
 //Create instance of the LinkedList Class.
 l1=new LinkedList();
+l1.addNode(4)
 l1.addNode(1)
-l1.addNode(2)
-l1.addNode(2)
-l1.addNode(3)
+l1.addNode(8)
+l1.addNode(4)
+l1.addNode(5)
 l1.removeDuplicates();
 l1.printAll();
 console.log(l1.hasCycle());

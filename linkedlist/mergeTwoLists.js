@@ -61,7 +61,7 @@ l2.addNode(6)
 
 l3= new LinkedList();
 l3.mergeTwoLists(l1,l2)
-l1.printAll();
+l2.printAll();
 
 
 

@@ -39,6 +39,23 @@ class LinkedList{
             }
         }
     }
+    // Remove duplicates.
+    removeDuplicates=(value)=>{
+        let cur=this.head;
+        let prev=null;
+        let seenValues= new Set();
+        while(cur){
+            if(seenValues.has(cur.value)){
+                prev.next=cur.next;
+            }else{
+                seenValues.add(cur.value)
+                prev=cur;
+
+            }
+            cur=cur.next;
+        }
+        return this.head;
+    }
     //Print all the nodes.
     printAll=()=>{
         let cur= this.head;
@@ -52,16 +69,10 @@ class LinkedList{
 l1=new LinkedList();
 l1.addNode(1)
 l1.addNode(2)
+l1.addNode(2)
 l1.addNode(3)
-
-l2=new LinkedList();
-l2.addNode(4)
-l2.addNode(5)
-l2.addNode(6)
-
-l3= new LinkedList();
-l3.mergeTwoLists(l1,l2)
-l2.printAll();
+l1.removeDuplicates();
+l1.printAll();
 
 
 

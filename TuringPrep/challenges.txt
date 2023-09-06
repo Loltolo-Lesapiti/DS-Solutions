@@ -1,0 +1,15 @@
+Given a list of numbers, find the maximum number.
+Given a string, reverse the string.
+Given a string, find the longest substring without repeating characters.
+Given two strings, check if the two strings are anagrams of each other.
+Given a singly linked list, find the middle node of the list.
+Given a binary tree, find the maximum depth of the tree.
+Given a sorted array, find the first occurrence of a given number in the array.
+Given a sorted array, find the last occurrence of a given number in the array.
+Given a 2D array, find the longest increasing subsequence.
+Given a 2D array, find the minimum path sum from the top left corner to the bottom right corner.
+Implement a queue using linked lists.
+Implement a stack using linked lists.
+Implement a binary search tree.
+Implement a hash table.
+Implement a sorting algorithm (e.g., merge sort, quick sort, heap sort).

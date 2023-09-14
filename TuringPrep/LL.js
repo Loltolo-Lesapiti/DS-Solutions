@@ -17,6 +17,19 @@ class linkedList {
     newNode.next = this.head;
     this.head = newNode;
   };
+  addFromEnd = (data) => {
+    let newNode = new Node(data);
+    if (!this.head) {
+      this.head = newNode;
+    } else {
+      let curNode = this.head;
+      while (curNode.next) {
+        curNode = curNode.next;
+      }
+      curNode.next = newNode;
+      curNode = newNode;
+    }
+  };
   //Print the nodes.
   print = () => {
     let curNode = this.head;
@@ -26,3 +39,12 @@ class linkedList {
     }
   };
 }
+// Testing.
+let myList = new linkedList();
+myList.addFromStart(1);
+myList.addFromStart(2);
+myList.addFromStart(3);
+myList.addFromStart(4);
+myList.addFromEnd(5);
+
+myList.print();

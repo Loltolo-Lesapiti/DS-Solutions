@@ -52,6 +52,14 @@ class linkedList {
       }
     }
   };
+  // Delting from front.
+  deleteFromStart = () => {
+    let cur = this.head;
+    this.head = cur.next;
+  };
+
+  //Delete from end.
+
   //Print the nodes.
   print = () => {
     let curNode = this.head;
@@ -69,5 +77,6 @@ myList.addFromStart(3);
 myList.addFromStart(4);
 myList.addFromEnd(5);
 myList.addAtPos(6, 3);
+// myList.deleteFromStart();
 
 myList.print();

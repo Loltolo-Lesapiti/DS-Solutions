@@ -84,6 +84,16 @@ class linkedList {
       prev.next = cur.next;
     }
   };
+  // Find the middle of a linklist.
+  middle = () => {
+    let slowPointer = this.head;
+    let firstPointer = this.head;
+    while (firstPointer && firstPointer.next) {
+      slowPointer = slowPointer.next;
+      firstPointer = firstPointer.next.next;
+    }
+    return slowPointer.data;
+  };
   //Print the nodes.
   print = () => {
     let curNode = this.head;
@@ -99,10 +109,16 @@ myList.addFromStart(1);
 myList.addFromStart(2);
 myList.addFromStart(3);
 myList.addFromStart(4);
-myList.addFromEnd(5);
-myList.addAtPos(6, 3);
+myList.addFromStart(5);
+myList.addFromStart(6);
+myList.addFromStart(7);
+myList.addFromStart(8);
+myList.addFromStart(9);
+
+// myList.addAtPos(6, 3);
 // myList.deleteFromStart();
 // myList.deleteFromEnd();
 // myList.removeAtPos(3);
+console.log("The middle pointer is: ", myList.middle());
 
 myList.print();

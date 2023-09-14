@@ -30,6 +30,28 @@ class linkedList {
       curNode = newNode;
     }
   };
+  // Add a node at a pecified position.
+  addAtPos = (data, pos) => {
+    if (pos === 1) {
+      this.addFromStart(data);
+    } else {
+      let newNode = new Node(data);
+      let curNode = this.head;
+      let prevNode = null;
+      let count = 1;
+      while (curNode && count < pos) {
+        count++;
+        prevNode = curNode;
+        curNode = curNode.next;
+      }
+      if (count !== pos) {
+        console.log("Position out of reach");
+      } else {
+        prevNode.next = newNode;
+        newNode.next = curNode;
+      }
+    }
+  };
   //Print the nodes.
   print = () => {
     let curNode = this.head;
@@ -46,5 +68,6 @@ myList.addFromStart(2);
 myList.addFromStart(3);
 myList.addFromStart(4);
 myList.addFromEnd(5);
+myList.addAtPos(6, 3);
 
 myList.print();

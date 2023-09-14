@@ -59,6 +59,15 @@ class linkedList {
   };
 
   //Delete from end.
+  deleteFromEnd = () => {
+    let cur = this.head;
+    let prev = null;
+    while (cur.next) {
+      prev = cur;
+      cur = cur.next;
+    }
+    prev.next = null;
+  };
 
   //Print the nodes.
   print = () => {
@@ -78,5 +87,6 @@ myList.addFromStart(4);
 myList.addFromEnd(5);
 myList.addAtPos(6, 3);
 // myList.deleteFromStart();
+// myList.deleteFromEnd();
 
 myList.print();

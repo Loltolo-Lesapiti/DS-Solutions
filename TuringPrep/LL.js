@@ -68,7 +68,22 @@ class linkedList {
     }
     prev.next = null;
   };
-
+  //Remove at a particular position.
+  removeAtPos = (pos) => {
+    let cur = this.head;
+    let prev = null;
+    let count = 1;
+    while (cur.next && count < pos) {
+      prev = cur;
+      cur = cur.next;
+      count++;
+    }
+    if (count !== pos) {
+      console.log("Position out of reach");
+    } else {
+      prev.next = cur.next;
+    }
+  };
   //Print the nodes.
   print = () => {
     let curNode = this.head;
@@ -88,5 +103,6 @@ myList.addFromEnd(5);
 myList.addAtPos(6, 3);
 // myList.deleteFromStart();
 // myList.deleteFromEnd();
+// myList.removeAtPos(3);
 
 myList.print();

@@ -107,6 +107,19 @@ class linkedList {
     }
     this.head = prev;
   };
+  //Detect a loop in a linkedList using totoise and hare technique.
+  hasLopp() {
+    let slowPointer = this.head;
+    let firstPointer = this.head;
+    while (firstPointer && firstPointer.next) {
+      slowPointer = slowPointer.next;
+      firstPointer = firstPointer.next.next;
+      if (slowPointer === firstPointer) {
+        return true;
+      }
+    }
+    return false;
+  }
   //Print the nodes.
   print = () => {
     let curNode = this.head;
@@ -133,3 +146,4 @@ myList.print();
 myList.reverse();
 console.log("Reversed list :");
 myList.print();
+console.log("Loop found : ", myList.hasLopp());

@@ -94,6 +94,19 @@ class linkedList {
     }
     return slowPointer.data;
   };
+  //Reverse a linkedList.
+  reverse = () => {
+    let cur = this.head;
+    let prev = null;
+    let next = null;
+    while (cur) {
+      next = cur.next;
+      cur.next = prev;
+      prev = cur;
+      cur = next;
+    }
+    this.head = prev;
+  };
   //Print the nodes.
   print = () => {
     let curNode = this.head;
@@ -115,10 +128,8 @@ myList.addFromStart(7);
 myList.addFromStart(8);
 myList.addFromStart(9);
 
-// myList.addAtPos(6, 3);
-// myList.deleteFromStart();
-// myList.deleteFromEnd();
-// myList.removeAtPos(3);
-console.log("The middle pointer is: ", myList.middle());
-
+console.log("Original list :");
+myList.print();
+myList.reverse();
+console.log("Reversed list :");
 myList.print();

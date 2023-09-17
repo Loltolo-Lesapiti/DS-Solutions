@@ -16,7 +16,14 @@ const reversedNum = (num) => {
   let sign = Math.sign(num);
   //Convert the reversed string into a floating number with the sign if the original number had it and preceeding zeros removed.
   let reversedNum = parseFloat(reversedNumStr) * sign;
-  return reversedNum;
+  return reversedNum >= Math.pow(2, 31) * -1 && reversedNum <= Math.pow(2, 31)
+    ? reversedNum
+    : 0;
+
+  //Alternative solution that is more efficient accoding to leetcode but its not readable, I prefer using variable for later reference.
+  //   return parseFloat((num.toString().split("").reverse().join(""))) * Math.sign(num)>= Math.pow(2,31)*-1 &&
+  //   parseFloat((num.toString().split("").reverse().join(""))) * Math.sign(num)
+  //   <= Math.pow(2,31)? parseFloat((num.toString().split("").reverse().join(""))) * Math.sign(num) :0
 };
 //Testing
 console.log(reversedNum(-12345));

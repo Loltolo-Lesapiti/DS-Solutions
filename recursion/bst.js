@@ -121,9 +121,9 @@ class Bst {
       return 1;
     }
 
-    let leftDepth = depth(root.left);
-    let rightDepth = depth(root.right);
-    return Math.max(leftDepth, rightDepth) + 1;
+    return root.left && root.right
+      ? Math.min(depth(root.left), depth(root.right)) + 1
+      : 1;
   };
 }
 

@@ -1,12 +1,5 @@
-const balancedStringSplit = (s)=> {
-    const newArr= s.split('RL').join('*');
-    let sum=0;
-    for(let i=0; i<newArr.length; i++){
-        if(newArr[i]==='*'){
-            sum+=1;
-        }
-    }
-    return sum;
-    
+const balancedString = (s) => {
+  return s.split("RL").length - 1;
 };
-console.log(balancedStringSplit("RLRRRLLRLL"));
+
+console.log(balancedString("RLRRRLLRLL"));

@@ -4,7 +4,7 @@
 The interpreted strings are then concatenated in the original order.
 
 */
-const Goal=(command)=>{
-    return newCommand= command.split("()").join("o").split("(al)").join("al");
-}
+const Goal = (command) => {
+  return (newCommand = command.split("()").join("o").split("(al)").join("al"));
+};
 console.log(Goal("G()(al)"));
